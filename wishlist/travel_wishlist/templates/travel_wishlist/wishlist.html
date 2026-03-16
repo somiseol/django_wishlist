@@ -1,0 +1,30 @@
+<h2>TRAVEL WISHLIST</h2>
+
+<form method="POST" action="{% url 'place_list' %}">
+    {% csrf_token %}
+    {{ new_place_form }}
+    <button type="sumbit">add new place</button>
+</form> 
+
+
+{% for place in places %}
+
+<div>
+    {{ place.name }}
+
+    <form method="POST" action="{% url 'place_was_visited' place.pk %}">  <!--- url reversing; will fill in placeholder in the path in urls.py (place/<int:place_pk>/was_visited) --->
+        {% csrf_token %}
+        <button>visited</button>
+    </form>
+
+</div>
+
+{% empty %} <!--- if list is empty --->
+
+<p>you have no places in your wishlist</p>
+
+{% endfor %}
+
+<a href="{% url 'places_visited' %}">places visited</a>  <!--- link to url that's referencing 'name' in urls.py --->
+
+<a href="{% url 'about'%}">about</a>
