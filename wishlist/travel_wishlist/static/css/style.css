@@ -1,10 +1,10 @@
-span.place_name {
+span.place-name {
     display: inline-block;
     width: 70%;
 }
 
 form.visited-form {
-    display: inline;  /* display all buttons in same line */
+    display: inline;  /* display all elements in same line */
 }
 
 div.wishlist-place {
@@ -17,5 +17,10 @@ label {
 }
 
 a.nav-link {
-    padding-right: 10px;
+    margin-right: 10px;
+}
+
+#add-new-place {
+    background-color: green;
+    border: darkgreen;
 }

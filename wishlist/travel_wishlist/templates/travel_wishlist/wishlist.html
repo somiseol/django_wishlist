@@ -3,19 +3,19 @@
 
 <h2>TRAVEL WISHLIST</h2>
 
-<form method="POST" action="{% url 'place_list' %}">
+<form class="visited-form" method="POST" action="{% url 'place_list' %}">  <!--- TODO make 'add' button in-line --->
     {% csrf_token %}
     {{ new_place_form }}
-    <button type="sumbit">add new place</button>
+    <button id="add-new-place" type="sumbit">add</button>
 </form> 
 
 
 {% for place in places %}
 
-<div>
-    {{ place.name }}
+<div class="wishlist-place">
+    <span class="place-name">{{ place.name }}</span>
 
-    <form method="POST" action="{% url 'place_was_visited' place.pk %}">  <!--- url reversing; will fill in placeholder in the path in urls.py (place/<int:place_pk>/was_visited) --->
+    <form class="visited-form" method="POST" action="{% url 'place_was_visited' place.pk %}">  <!--- url reversing; will fill in placeholder in the path in urls.py (place/<int:place_pk>/was_visited) --->
         {% csrf_token %}
         <button>visited</button>
     </form>
@@ -27,7 +27,5 @@
 <p>you have no places in your wishlist</p>
 
 {% endfor %}
-
-<a href="{% url 'about'%}">about</a>
 
 {% endblock %}
