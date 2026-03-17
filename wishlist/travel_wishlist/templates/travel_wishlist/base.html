@@ -1,9 +1,13 @@
 <!--- will show in every single page that extends this base template --->
 
+{% load static %}
+
 <!DOCTYPE html>
 <hmtl>
 <head>  
     <title>TRAVEL WISHLIST</title>  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sakura.css/css/sakura.css" type="text/css">  <!--- sakura css framework --->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">  <!--- load own stylesheet --->
 </head>
 
 <h1>WHERE DO YOU WANT TO GO?</h1>
